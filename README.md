@@ -120,7 +120,7 @@ npm install
 npm run dev
 ```
 
-The API will be available at `[[http://localhost:3000/api/](https://maree-api-new.vercel.app/api/data)](https://maree-api-new.vercel.app/api/data)`
+The API will be available at `https://maree-api-new.vercel.app/api/data`
 
 ## Tech Stack
 
