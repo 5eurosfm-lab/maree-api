@@ -1,7 +1,10 @@
 # French Tide Data API
 
-A Next.js API that provides French tide data by scraping information from marine.meteoconsult.fr.
-
+This tidal calculation API has an orchestrated technical architecture with several specialized components that have scientific methods and technical constraints.
+A centralized database of harmonic constants forms the heart of the system. This database stores the 143 standard harmonic components (amplitude, phase, period) for each reference port, organized according to a relational schema optimized for frequent temporal queries. The structure includes separate tables for reference ports, constants per harmonic component (M2, S2, K1, O1, etc.), and spatial metadata.
+Real-time harmonic calculation engine
+The calculation engine implements the harmonic analysis algorithm in a dedicated service to optimize performance. Variable astronomical arguments require precise calculation based on lunar and solar ephemerides, usually pre-calculated and stored as lookup tables for the next 400 years.
+A pool of asynchronous workers handles calculation requests in parallel, enabling several hundred predictions to be managed simultaneously. For tidal coefficients, the API automatically calculates the semi-diurnal tidal range, applying the French formula Coefficient = (Tidal range / 6.1 m) × 100.
 ## Features
 
 - 🌊 Get tide times and heights for French coastal locations
